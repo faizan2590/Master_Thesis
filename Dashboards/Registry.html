@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <title>OLI SharEnergy</title>
+    <script src="web3.js/dist/web3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+
+        //OLIOrigin/OLIDetail Contract
+        var contract_origin_address = "0xcf457b3b22c01131245dbeeb8766a0d938861bff";
+        var contract_origin_abi = [{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliType","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliCkt","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliTrafoid","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_gsoAddr","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"},{"name":"_index","type":"uint8"}],"name":"get_oliPeakLoad","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"oli","type":"address"},{"name":"lat","type":"uint32"},{"name":"long","type":"uint32"},{"name":"trafo","type":"uint32"},{"name":"ckt","type":"uint8"},{"name":"typex","type":"uint8"},{"name":"pload","type":"uint16[]"}],"name":"addOli","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"paymentAddress","type":"address"},{"indexed":false,"name":"latOfLocation","type":"uint32"},{"indexed":false,"name":"longOfLocation","type":"uint32"}],"name":"newAddedOli","type":"event"}];
+
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+
+        var contract_origin_instance = web3.eth.contract(contract_origin_abi).at(contract_origin_address);
+
+        var myEvent;
+        var trafo_id;
+        var circuit = ['First', 'Second'];
+        var circuit_index;
+        var p_type = ['PV','Wind','CCP','CHP','Coal','Battery','Battery','Consumer','DSO'];
+        var p_type_index;
+        var peak;
+        var traf_aray = [];
+
+        function nowTime() {
+            var info = web3.eth.getBlock('latest');
+            var date = new Date((info.timestamp)*1000);
+
+            // Hours part from the timestamp
+            var hours = date.getHours();
+            // Minutes part from the timestamp
+            var minutes = "0" + date.getMinutes();
+            // Seconds part from the timestamp
+            var seconds = "0" + date.getSeconds();
+
+            // Will display time in 10:30:23 format
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+            return formattedTime;
+        }
+
+
+        function watchNewAddedOlis() {
+
+            myEvent = contract_origin_instance.newAddedOli({fromBlock: 'latest' , toBlock:'latest'});
+            console.log(myEvent);
+            myEvent.watch(function(error, result) {
+                if(error) {
+                    console.log(error);
+                } else {
+                    console.log(result);
+                    trafo_id = contract_origin_instance.get_oliTrafoid(result.args.paymentAddress);
+                    circuit_index = parseInt(contract_origin_instance.get_oliCkt(result.args.paymentAddress));
+                    p_type_index = parseInt(contract_origin_instance.get_oliType(result.args.paymentAddress));
+                    if (p_type_index == 8) {
+                        for (a=0;a<=circuit_index;a++){
+                            traf_aray.push(parseInt(contract_origin_instance.get_oliPeakLoad(result.args.paymentAddress,parseInt(a))));
+                        }
+                        document.getElementById("dso").innerHTML += "<br />" + "<br />" +
+                            "Oli Payment Address: " + result.args.paymentAddress + " | Oli GPS Coordinates: (" + ((result.args.latOfLocation)/10000) + "," +
+                            ((result.args.longOfLocation)/10000) + ") | Transformer ID: " + trafo_id + " | Circuits: " + circuit_index +
+                            " | Agent Type: " + p_type[p_type_index] + " | Transformer Power(KW): " + traf_aray[0]/1000 + " | Circuit Capacity(Watts): " + traf_aray.slice(1);
+                        traf_aray = [];
+                    }
+                    else {
+                        peak = parseInt(contract_origin_instance.get_oliPeakLoad(result.args.paymentAddress,parseInt(0)));
+                        document.getElementById("events_n").innerHTML += "<br />" + "<br />" +
+                            "Oli Payment Address: " + result.args.paymentAddress + " | Oli GPS Coordinates: (" + ((result.args.latOfLocation)/10000) + "," +
+                            ((result.args.longOfLocation)/10000) + ") | Transformer ID: " + trafo_id + " | Circuit: " + circuit[circuit_index] +
+                            " | Connection Type: " + p_type[p_type_index] + " | Peak Power(Watts): " + peak;
+                    }
+                }
+            });
+        }
+        function stopWatchingEvents() {
+            if(myEvent !== undefined) {
+                myEvent.stopWatching();
+            }
+        }
+        function getAllAddedOlis() {
+            contract_origin_instance.newAddedOli({}, {fromBlock: 0 , toBlock: 'latest'}).get(function(error, result) {
+                if(error) {
+                    console.error(error);
+                } else {
+                    console.log(result);
+                    for (i = 0; i < result.length; i++) {
+                        trafo_id = contract_origin_instance.get_oliTrafoid(result[i].args.paymentAddress);
+                        circuit_index = parseInt(contract_origin_instance.get_oliCkt(result[i].args.paymentAddress));
+                        p_type_index = parseInt(contract_origin_instance.get_oliType(result[i].args.paymentAddress));
+                        peak = parseInt(contract_origin_instance.get_oliPeakLoad(result[i].args.paymentAddress,parseInt(0)));
+
+                        document.getElementById("events_n").innerHTML += "<br />" +
+                            "Oli Payment Address: " + result[i].args.paymentAddress + " | Oli GPS Coordinates: (" + ((result[i].args.latOfLocation)/10000) + "," +
+                            ((result[i].args.longOfLocation)/10000) + ") | Transformer ID: " + trafo_id + " | Circuit: " + circuit[circuit_index] +
+                        " | Connection Type: " + p_type[p_type_index] + " | Peak Power: " + peak;
+                    }
+                }
+            });
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+<h1>Interact with a contract</h1>
+
+<button onclick="watchNewAddedOlis()">Watch New Oli</button>
+<button onclick="stopWatchingEvents()">Stop Watching Event</button>
+<button onclick="getAllAddedOlis()">Get All Added Olis</button>
+<br />
+
+<br />
+<br />
+<h2>New Added Olis:</h2>
+<div id="events_n"></div>
+<br />
+<br />
+<h2>Oli History:</h2>
+<div id="events_h"></div>
+<br />
+<br />
+<h2>DSO Details:</h2>
+<div id="dso"></div>
+
+
+</body>
+</html>
