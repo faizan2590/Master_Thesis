@@ -25,13 +25,10 @@
         var contract_daughter_address = "0xc9429711e9b8f310a71a0bbe35d168d42b8908a5";
         var contract_daughter_abi = [{"constant":false,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_tf","type":"bool"}],"name":"set_ContractAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"}],"name":"bid","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliCoin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setDynamicGridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"resett","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get_producer","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_rate","type":"uint8"}],"name":"get_sRate","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"get_consumer","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_rate","type":"uint8"}],"name":"get_dRate","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"maxRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"breakEven","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"gaddr","type":"address"},{"indexed":false,"name":"grate","type":"uint8"},{"indexed":false,"name":"gamount","type":"uint16"}],"name":"NewGenBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"caddr","type":"address"},{"indexed":false,"name":"crate","type":"uint8"},{"indexed":false,"name":"camount","type":"uint16"}],"name":"NewConBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"cbid","type":"uint8"}],"name":"NewMcp","type":"event"}];
 
-        //Bilateral Trade contract
-        var contract_bilateral_address = "0x642ad95fa0b08913f8bf941eb5d8667d781eb232";
-        var contract_bilateral_abi = [{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stock","type":"address"},{"name":"_rate","type":"uint8"}],"name":"stockBidding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockAmount","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"},{"name":"_period","type":"uint32"},{"name":"_btime","type":"uint32"}],"name":"regStock","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockBidder","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"saccount","type":"address"},{"indexed":false,"name":"samount","type":"uint16"},{"indexed":false,"name":"smrate","type":"uint8"},{"indexed":false,"name":"speriod","type":"uint32"},{"indexed":false,"name":"sbiddingTime","type":"uint32"}],"name":"NewStock","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"baccount","type":"address"},{"indexed":false,"name":"bmrate","type":"uint8"}],"name":"NewStockBid","type":"event"}];
 
         //Grid Fee Contract
-        var contract_gridFee_address = "0x422d2afc16d5718d8a2c9ba35c9e7032ca2157b2";
-        var contract_gridFee_abi = [{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}];
+        var contract_gridFee_address = "0x39a51aab23d4eddb1500ec2f2d2ea1d51771ccee";
+        var contract_gridFee_abi = [{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoLoad","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoPeakLoad","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}];
 
 
         if (typeof web3 !== 'undefined') {
@@ -44,7 +41,6 @@
         var contract_origin_instance = web3.eth.contract(contract_origin_abi).at(contract_origin_address);
         var contract_Coin_instance = web3.eth.contract(contract_Coin_abi).at(contract_Coin_address);
         var contract_daughter_instance = web3.eth.contract(contract_daughter_abi).at(contract_daughter_address);
-        var contract_bilateral_instance = web3.eth.contract(contract_bilateral_abi).at(contract_bilateral_address);
         var contract_gridFee_instance = web3.eth.contract(contract_gridFee_abi).at(contract_gridFee_address);
 
         function nowTime() {
@@ -150,6 +146,7 @@
                             }
                         });
                     }
+                gridFee();
                 }
             });
         }
@@ -250,6 +247,9 @@
             },
             yaxis: {
                 title: 'cents/KW'
+            },
+            font: {
+                size: 16,
             }
         };
 
@@ -257,10 +257,95 @@
             Plotly.newPlot('moa', biddata, layout3);
         }
 
-        var sid;
-        var spw;
-        var cn;
-        var rid;
+        /////////////////////////////////////////
+        //////////////Grid Fee Plotting/////////
+        ////////////////////////////////////////
+        var tGFee = parseInt(0);
+        var xGFee = [];
+        var yGFee = [];
+        var traceGFee = {
+            x: xGFee,
+            y: yGFee,
+            mode: 'lines+markers',
+            name: 'hv',
+            line: {shape: 'hv'},
+            type: 'scatter'
+        };
+
+        var gFeeData = [traceGFee];
+        var layoutgFee = {
+            title: 'Parent Cell Grid Fee',
+            xaxis: {
+                title: 'Time (cycles)'
+            },
+            yaxis: {
+                title: '(cents/KW)'
+            },
+            font: {
+                size: 16,
+            }
+        };
+        var trafoGFee;
+
+        //Ckt; percentage Load Plotting
+        var xLoad = [];
+        var yLoad = [];
+        var traceLoad = {
+            x: xLoad,
+            y: yLoad,
+            mode: 'lines+markers',
+            name: 'hv',
+            line: {shape: 'hv'},
+            type: 'scatter'
+        };
+
+        var trafoLoad;
+        var peakLoad;
+        var perLoad;
+        var gLoadData = [traceLoad];
+        var layoutgLoad = {
+            title: 'Transformer Loading',
+            xaxis: {
+                title: 'Time (cycles)'
+            },
+            yaxis: {
+                title: '(Percentage)'
+            },
+            font: {
+                size: 16,
+            }
+        };
+
+        function gridFee(){
+            gAddr = contract_origin_instance.get_gsoAddr(parseInt(67376));
+            trafoGFee = contract_gridFee_instance.get_gridFee(parseInt(67376), parseInt(4));
+            console.log("Parent Cell Grid Fee: " + trafoGFee);
+            xGFee.push(tGFee);
+            yGFee.push(parseInt(trafoGFee));
+
+            trafoLoad = parseInt(contract_gridFee_instance.get_trafoAmount(gAddr));
+            peakLoad = parseInt(contract_origin_instance.get_oliPeakLoad(gAddr,parseInt(0)));
+            perLoad = (trafoLoad/peakLoad)*100;
+            console.log ("Fee Cycle(t-1): " + xGFee);
+            console.log ("Grid Usage Rate(t-1): " + yGFee);
+            console.log ("Load Cycle: " + xLoad);
+            console.log ("Trafo Load: " + trafoLoad);
+            console.log ("Peak Load: " + peakLoad);
+            console.log ("Percentage Load: " + yLoad);
+            if (tGFee>0) {
+                Plotly.newPlot('gf', gFeeData, layoutgFee);
+                Plotly.newPlot('gl', gLoadData, layoutgLoad);
+            }
+            else {
+                xGFee.shift();
+                yGFee.shift();
+            }
+
+            xLoad.push(tGFee+1);
+            yLoad.push(perLoad);
+            tGFee++;
+
+        }
 
 
     </script>
@@ -289,9 +374,13 @@
 <br />
 <h2>Market Clearing Price:</h2>
 <div id="mcp"></div>
-<h2>Merit Order Affect</h2>
+<h2>Merit Order Effect</h2>
 <div id="moa"></div>
 <br />
+<button onclick="gridFee()">Grid Fee</button>
+<div id="gf"></div>
+<br />
+<div id="gl"></div>
 
 
 </body>

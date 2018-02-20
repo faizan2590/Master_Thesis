@@ -36,17 +36,27 @@ Oliorigin_abi      = json.loads(Oliorigin_abi_str)
 Oliorigin_contract = web3.eth.contract(abi=Oliorigin_abi,address=Oliorigin_address)
 
 
-# In[5]:
+# In[4]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
-Olibilateral_address = '0x642ad95fa0b08913f8bf941eb5d8667d781eb232'
-Olibilateral_abi_str  = '[{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stock","type":"address"},{"name":"_rate","type":"uint8"}],"name":"stockBidding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockAmount","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"},{"name":"_period","type":"uint32"},{"name":"_btime","type":"uint32"}],"name":"regStock","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockBidder","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"saccount","type":"address"},{"indexed":false,"name":"samount","type":"uint16"},{"indexed":false,"name":"smrate","type":"uint8"},{"indexed":false,"name":"speriod","type":"uint32"},{"indexed":false,"name":"sbiddingTime","type":"uint32"}],"name":"NewStock","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"baccount","type":"address"},{"indexed":false,"name":"bmrate","type":"uint8"}],"name":"NewStockBid","type":"event"}]'
+Olibilateral_address = '0xfaf5a6df9ddbf8f36ea4a12676f67edb98074ab9'
+Olibilateral_abi_str  = '[{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stock","type":"address"},{"name":"_rate","type":"uint8"}],"name":"stockBidding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliCoin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockAmount","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"},{"name":"_period","type":"uint32"},{"name":"_btime","type":"uint32"}],"name":"regStock","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"biTrade","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockBidder","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"saccount","type":"address"},{"indexed":false,"name":"samount","type":"uint16"},{"indexed":false,"name":"smrate","type":"uint8"},{"indexed":false,"name":"speriod","type":"uint32"},{"indexed":false,"name":"sbiddingTime","type":"uint32"}],"name":"NewStock","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"baccount","type":"address"},{"indexed":false,"name":"bmrate","type":"uint8"}],"name":"NewStockBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bprod","type":"address"},{"indexed":false,"name":"bcons","type":"address"},{"indexed":false,"name":"bamount","type":"uint16"},{"indexed":false,"name":"brate","type":"uint8"}],"name":"BiTrade","type":"event"}]'
 Olibilateral_abi      = json.loads(Olibilateral_abi_str)
 Olibilateral_contract = web3.eth.contract(abi=Olibilateral_abi,address=Olibilateral_address)
 
 
-# In[18]:
+# In[5]:
+
+
+# define the adress, ABI (with parsing from str to JSON) and define the contract object
+Olicoin_address = '0x9b18b1509c6f12eaaf8c7d91b76cd8c8d1950467'
+Olicoin_abi_str  = '[{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"caddress","type":"address"}],"name":"get_coinBalance","outputs":[{"name":"","type":"int32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_contract","type":"address"},{"name":"_tf","type":"bool"}],"name":"set_ContractAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_change","type":"int32"}],"name":"set_OliCoinBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint16"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint16"}],"name":"Transfer","type":"event"}]'
+Olicoin_abi      = json.loads(Olicoin_abi_str)
+Olicoin_contract = web3.eth.contract(abi=Olicoin_abi,address=Olicoin_address)
+
+
+# In[8]:
 
 
 #Ethereum Accounts
@@ -75,7 +85,7 @@ account_21=web3.eth.accounts[21]
 account_22=web3.eth.accounts[22]
 
 
-# In[56]:
+# In[41]:
 
 
 
@@ -83,27 +93,41 @@ account_22=web3.eth.accounts[22]
 #set oli origin Address
 web3.personal.unlockAccount(coinbase, 'felixfaizan')
 Olibilateral_contract.transact({'from': coinbase}).setOliOrigin(Oliorigin_address)
+#set oli coin Address
+web3.personal.unlockAccount(coinbase, 'felixfaizan')
+Olibilateral_contract.transact({'from': coinbase}).setOliCoin(Olicoin_address)
 
 
-# In[40]:
+# In[10]:
 
 
 ###BILATERAL TRADE####
 #Stock registering
-web3.personal.unlockAccount(account_5, 'felixfaizan')
-Olibilateral_contract.transact({'from': account_5}).regStock(5, 5, 108000, 240)
-time.sleep(30)
+web3.personal.unlockAccount(account_1, 'felixfaizan')
+Olibilateral_contract.transact({'from': account_1}).regStock(300, 5, 108000, 180)
+time.sleep(20)
 
 #Stock Biddings
 web3.personal.unlockAccount(account_6, 'felixfaizan')
-Olibilateral_contract.transact({'from': account_6}).stockBidding(account_5, 7)
-time.sleep(30)
+Olibilateral_contract.transact({'from': account_6}).stockBidding(account_1, 7)
+time.sleep(20)
 
 web3.personal.unlockAccount(account_7, 'felixfaizan')
-Olibilateral_contract.transact({'from': account_7}).stockBidding(account_5, 8)
-time.sleep(30)
+Olibilateral_contract.transact({'from': account_7}).stockBidding(account_1, 8)
+time.sleep(20)
 
 web3.personal.unlockAccount(account_8, 'felixfaizan')
-Olibilateral_contract.transact({'from': account_8}).stockBidding(account_5, 9)
-time.sleep(30)
+Olibilateral_contract.transact({'from': account_8}).stockBidding(account_1, 9)
+time.sleep(20)
+
+
+# In[11]:
+
+
+#Bilateral Energy Purchase
+run = 1
+while run == 1:
+    web3.personal.unlockAccount(account_1, 'felixfaizan')
+    Olibilateral_contract.transact({'from': account_1}).biTrade()
+    time.sleep(120)
 

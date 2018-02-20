@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 
@@ -15,7 +15,7 @@ import random
 from web3 import Web3, KeepAliveRPCProvider, IPCProvider, HTTPProvider
 
 
-# In[2]:
+# In[3]:
 
 
 #web3 provider
@@ -26,7 +26,7 @@ web3.eth.defaultBlock = "latest"
 transaction = {'from': coinbase}
 
 
-# In[3]:
+# In[4]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -36,7 +36,7 @@ Oliorigin_abi      = json.loads(Oliorigin_abi_str)
 Oliorigin_contract = web3.eth.contract(abi=Oliorigin_abi,address=Oliorigin_address)
 
 
-# In[4]:
+# In[5]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -46,7 +46,7 @@ Olicoin_abi      = json.loads(Olicoin_abi_str)
 Olicoin_contract = web3.eth.contract(abi=Olicoin_abi,address=Olicoin_address)
 
 
-# In[5]:
+# In[6]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -56,17 +56,17 @@ Olidaughter_abi      = json.loads(Olidaughter_abi_str)
 Olidaughter_contract = web3.eth.contract(abi=Olidaughter_abi,address=Olidaughter_address)
 
 
-# In[6]:
+# In[7]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
-DynamicGridFee_address = '0x422d2afc16d5718d8a2c9ba35c9e7032ca2157b2'
-DynamicGridFee_abi_str  = '[{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}]'
+DynamicGridFee_address = '0x39a51aab23d4eddb1500ec2f2d2ea1d51771ccee'
+DynamicGridFee_abi_str  = '[{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoLoad","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoPeakLoad","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}]'
 DynamicGridFee_abi      = json.loads(DynamicGridFee_abi_str)
 DynamicGridFee_contract = web3.eth.contract(abi=DynamicGridFee_abi,address=DynamicGridFee_address)
 
 
-# In[7]:
+# In[8]:
 
 
 #Ethereum Accounts/EOA
@@ -95,7 +95,7 @@ account_21=web3.eth.accounts[21]
 account_22=web3.eth.accounts[22]
 
 
-# In[104]:
+# In[50]:
 
 
 #########DAUGHTER AUCTION########
@@ -113,54 +113,116 @@ web3.personal.unlockAccount(coinbase, 'felixfaizan')
 Olidaughter_contract.transact({'from': coinbase}).setDynamicGridFee(DynamicGridFee_address)
 
 
-# In[9]:
+# In[11]:
+
+
+bids = [2500,4500,6500,6500,5500,5500,6500,6500]
+i=0
+
+
+# In[12]:
 
 
 run = 1
 while run == 1:
     web3.personal.unlockAccount(account_11, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_11}).bid(random.randint(50,625), 3)
+    Olidaughter_contract.transact({'from': account_11}).bid(bids[i], 5)
 
     web3.personal.unlockAccount(account_12, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_12}).bid(random.randint(100,105), 10)
+    Olidaughter_contract.transact({'from': account_12}).bid(random.randint(2000,2050), 10)
 
     web3.personal.unlockAccount(account_13, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_13}).bid(random.randint(50,55), 13)
+    Olidaughter_contract.transact({'from': account_13}).bid(random.randint(800,850), 12)
 
     web3.personal.unlockAccount(account_14, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_14}).bid(random.randint(200,205), 14)
+    Olidaughter_contract.transact({'from': account_14}).bid(random.randint(2000,2050), 13)
 
     web3.personal.unlockAccount(account_15, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_15}).bid(random.randint(155,160), 15)
+    Olidaughter_contract.transact({'from': account_15}).bid(random.randint(1550,1600), 14)
 
     #    time.sleep(15)
 
     web3.personal.unlockAccount(account_16, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_16}).bid(random.randint(100,105), 9)
+    Olidaughter_contract.transact({'from': account_16}).bid(random.randint(2200,2205), 7)
 
     web3.personal.unlockAccount(account_17, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_17}).bid(random.randint(150,155), 10)
+    Olidaughter_contract.transact({'from': account_17}).bid(random.randint(1500,1550), 9)
 
     web3.personal.unlockAccount(account_18, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_18}).bid(random.randint(200,255), 12)
+    Olidaughter_contract.transact({'from': account_18}).bid(random.randint(2300,2350), 11)
 
     web3.personal.unlockAccount(account_19, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_19}).bid(random.randint(100,105), 13)
+    Olidaughter_contract.transact({'from': account_19}).bid(random.randint(1000,1050), 12)
 
     web3.personal.unlockAccount(account_20, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_20}).bid(random.randint(300,305), 14)
+    Olidaughter_contract.transact({'from': account_20}).bid(random.randint(3000,3050), 13)
 
-    time.sleep(30)
+    i=i+1
+    time.sleep(60)
     
     #MCP
     web3.personal.unlockAccount(account_19, 'felixfaizan')
     Olidaughter_contract.transact({'from': account_19}).breakEven()    
 
-    time.sleep(30)
+    time.sleep(60)
     
     #Resett
     web3.personal.unlockAccount(account_20, 'felixfaizan')
     Olidaughter_contract.transact({'from': account_20}).resett()
     
-    time.sleep(30)
+    time.sleep(60)
+
+
+# In[58]:
+
+
+web3.personal.unlockAccount(account_11, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_11}).bid(bids[i], 5)
+
+web3.personal.unlockAccount(account_12, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_12}).bid(random.randint(2000,2050), 10)
+
+web3.personal.unlockAccount(account_13, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_13}).bid(random.randint(800,850), 12)
+
+web3.personal.unlockAccount(account_14, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_14}).bid(random.randint(2000,2050), 13)
+
+web3.personal.unlockAccount(account_15, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_15}).bid(random.randint(1550,1600), 14)
+
+#    time.sleep(15)
+
+web3.personal.unlockAccount(account_16, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_16}).bid(random.randint(2200,2205), 7)
+
+web3.personal.unlockAccount(account_17, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_17}).bid(random.randint(1500,1550), 9)
+
+web3.personal.unlockAccount(account_18, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_18}).bid(random.randint(2300,2350), 11)
+
+web3.personal.unlockAccount(account_19, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_19}).bid(random.randint(1000,1050), 12)
+
+web3.personal.unlockAccount(account_20, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_20}).bid(random.randint(3000,3050), 13)
+
+i=i+1
+
+
+# In[59]:
+
+
+#MCP
+web3.personal.unlockAccount(account_19, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_19}).breakEven()    
+
+
+# In[9]:
+
+
+#Resett
+web3.personal.unlockAccount(account_20, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_20}).resett()
 

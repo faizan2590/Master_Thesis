@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[55]:
+# In[74]:
 
 
 # coding: utf-8
@@ -16,7 +16,7 @@ import random
 from web3 import Web3, KeepAliveRPCProvider, IPCProvider, HTTPProvider
 
 
-# In[56]:
+# In[75]:
 
 
 #web3 provider
@@ -27,7 +27,7 @@ web3.eth.defaultBlock = "latest"
 transaction = {'from': coinbase}
 
 
-# In[57]:
+# In[76]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -37,17 +37,17 @@ Oliorigin_abi      = json.loads(Oliorigin_abi_str)
 Oliorigin_contract = web3.eth.contract(abi=Oliorigin_abi,address=Oliorigin_address)
 
 
-# In[58]:
+# In[109]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
-DynamicGridFee_address = '0xbc53e6a4b58fbc6e22e4f280d664f6a1560b7904'
-DynamicGridFee_abi_str  = '[{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}]'
+DynamicGridFee_address = '0x39a51aab23d4eddb1500ec2f2d2ea1d51771ccee'
+DynamicGridFee_abi_str  = '[{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoLoad","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_trafoPeakLoad","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}]'
 DynamicGridFee_abi      = json.loads(DynamicGridFee_abi_str)
 DynamicGridFee_contract = web3.eth.contract(abi=DynamicGridFee_abi,address=DynamicGridFee_address)
 
 
-# In[59]:
+# In[93]:
 
 
 #Ethereum Accounts/EOAs
@@ -76,7 +76,7 @@ account_21=web3.eth.accounts[21]
 account_22=web3.eth.accounts[22]
 
 
-# In[61]:
+# In[94]:
 
 
 #########Dynamic Grid Fee#######
@@ -85,11 +85,35 @@ web3.personal.unlockAccount(coinbase, 'felixfaizan')
 DynamicGridFee_contract.transact({'from': coinbase}).setOliOrigin(Oliorigin_address)
 
 
-# In[62]:
+# In[95]:
 
 
 ###Set Min/Max Grid Fee###
 web3.personal.unlockAccount(coinbase, 'felixfaizan')
 DynamicGridFee_contract.transact({'from': coinbase}).set_minmaxgfee(account_21, [4,6,1,3])
 DynamicGridFee_contract.transact({'from': coinbase}).set_minmaxgfee(account_22, [4,6,1,3])
+
+
+# In[105]:
+
+
+DynamicGridFee_contract.call().get_trafoAmount(Oliorigin_contract.call().get_gsoAddr(67376))
+
+
+# In[106]:
+
+
+DynamicGridFee_contract.call().get_trafoPeakLoad(67376)
+
+
+# In[107]:
+
+
+DynamicGridFee_contract.call().get_trafoLoad(67376)
+
+
+# In[108]:
+
+
+DynamicGridFee_contract.call().get_gridFee(67377,4)
 

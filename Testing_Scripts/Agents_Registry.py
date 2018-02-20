@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[60]:
 
 
 # coding: utf-8
@@ -16,7 +16,7 @@ import random
 from web3 import Web3, KeepAliveRPCProvider, IPCProvider, HTTPProvider
 
 
-# In[2]:
+# In[61]:
 
 
 web3 = Web3(HTTPProvider("http://127.0.0.1:8545", request_kwargs={'timeout': 600}))
@@ -26,7 +26,7 @@ web3.eth.defaultBlock = "latest"
 transaction = {'from': coinbase}
 
 
-# In[3]:
+# In[62]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -36,7 +36,7 @@ Oliorigin_abi      = json.loads(Oliorigin_abi_str)
 Oliorigin_contract = web3.eth.contract(abi=Oliorigin_abi,address=Oliorigin_address)
 
 
-# In[18]:
+# In[63]:
 
 
 account_0=web3.eth.accounts[0]
@@ -64,47 +64,53 @@ account_21=web3.eth.accounts[21]
 account_22=web3.eth.accounts[22]
 
 
-# In[53]:
+# In[59]:
 
 
 #Register OLIs/Agents
 
 web3.personal.unlockAccount(coinbase, 'felixfaizan')
 
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_1, int(49.30e4), int(8.35e4), 67376, 0, 0, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_2, int(48.39e4), int(9.97e4), 67376, 1, 3, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_3, int(48.77e4), int(9.16e4), 67376, 0, 5, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_4, int(49.40e4), int(8.67e4), 67376, 1, 0, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_5, int(48.89e4), int(9.20e4), 67376, 0, 5, [1000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_1, int(49.30e4), int(8.35e4), 67376, 0, 0, [1500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_2, int(48.39e4), int(9.97e4), 67376, 1, 3, [7000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_3, int(48.77e4), int(9.16e4), 67376, 0, 5, [1500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_4, int(49.40e4), int(8.67e4), 67376, 1, 0, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_5, int(48.89e4), int(9.20e4), 67376, 0, 5, [2000])
 
 
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_6, int(48.62e4), int(9.83e4), 67376, 0, 6, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_7, int(48.00e4), int(7.84e4), 67376, 1, 6, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_8, int(49.49e4), int(8.47e4), 67376, 0, 7, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_9, int(49.32e4), int(8.44e4), 67376, 1, 7, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_10, int(48.41e4), int(10.00e4), 67376, 0, 7, [1000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_6, int(48.62e4), int(9.83e4), 67376, 0, 6, [1500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_7, int(48.00e4), int(7.84e4), 67376, 1, 6, [2000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_8, int(49.49e4), int(8.47e4), 67376, 0, 7, [3000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_9, int(49.32e4), int(8.44e4), 67376, 1, 7, [1500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_10, int(48.41e4), int(10.00e4), 67376, 0, 7, [3500])
 
 
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_11, int(48.69e4), int(9.21e4), 67377, 0, 0, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_12, int(49.47e4), int(8.47e4), 67377, 1, 3, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_13, int(48.42e4), int(10.07e4), 67377, 0, 5, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_14, int(48.80e4), int(9.22e4), 67377, 1, 0, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_15, int(48.87e4), int(9.22e4), 67377, 0, 5, [1000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_11, int(48.69e4), int(9.21e4), 67377, 0, 0, [4500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_12, int(49.47e4), int(8.47e4), 67377, 1, 3, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_13, int(48.42e4), int(10.07e4), 67377, 0, 5, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_14, int(48.80e4), int(9.22e4), 67377, 1, 0, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_15, int(48.87e4), int(9.22e4), 67377, 0, 5, [2500])
 
 
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_16, int(48.87e4), int(9.19e4), 67377, 0, 6, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_17, int(48.81e4), int(9.18e4), 67377, 1, 6, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_18, int(48.40e4), int(9.96e4), 67377, 0, 7, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_19, int(48.50e4), int(10.06e4), 67377, 1, 7, [1000])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_20, int(48.60e4), int(10.16e4), 67377, 0, 7, [1000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_16, int(48.87e4), int(9.19e4), 67377, 0, 6, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_17, int(48.81e4), int(9.18e4), 67377, 1, 6, [2000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_18, int(48.40e4), int(9.96e4), 67377, 0, 7, [2500])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_19, int(48.50e4), int(10.06e4), 67377, 1, 7, [2000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_20, int(48.60e4), int(10.16e4), 67377, 0, 7, [3500])
 
 
-# In[ ]:
+# In[65]:
 
 
 #Register DSOs
 
 web3.personal.unlockAccount(coinbase, 'felixfaizan')
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_21, int(49.30e4), int(8.35e4), 67376, 2, 8, [1000, 750, 750])
-Oliorigin_contract.transact({'from': coinbase}).addOli(account_22, int(48.69e4), int(9.21e4), 67377, 2, 8, [1000, 750, 750])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_21, int(49.30e4), int(8.35e4), 67376, 2, 8, [50000, 10000, 10000])
+Oliorigin_contract.transact({'from': coinbase}).addOli(account_22, int(48.69e4), int(9.21e4), 67377, 2, 8, [50000, 10000, 10000])
+
+
+# In[52]:
+
+
+account_22
 

@@ -47,7 +47,7 @@ Olicoin_abi      = json.loads(Olicoin_abi_str)
 Olicoin_contract = web3.eth.contract(abi=Olicoin_abi,address=Olicoin_address)
 
 
-# In[6]:
+# In[5]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
@@ -57,17 +57,17 @@ Olidaughter_abi      = json.loads(Olidaughter_abi_str)
 Olidaughter_contract = web3.eth.contract(abi=Olidaughter_abi,address=Olidaughter_address)
 
 
-# In[17]:
+# In[6]:
 
 
 # define the adress, ABI (with parsing from str to JSON) and define the contract object
-DynamicGridFee_address = '0xf1f27101f0d9ac46d347205f2aa16cf0249936b2'
+DynamicGridFee_address = '0x0ef2c74e908f2dd458c390f78a2486124280d7ec'
 DynamicGridFee_abi_str  = '[{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_gridFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_trafocamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_cktcamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_tgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"},{"name":"_index","type":"uint8"}],"name":"get_cktAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_tGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_fee","type":"uint8[]"}],"name":"set_minmaxgfee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint16"}],"name":"set_traforamount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_dGFee","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_tid","type":"uint32"}],"name":"set_dgridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_addr","type":"address"},{"name":"_amount","type":"uint64"}],"name":"set_cktramount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"get_trafoAmount","outputs":[{"name":"","type":"int16"}],"payable":false,"stateMutability":"view","type":"function"}]'
 DynamicGridFee_abi      = json.loads(DynamicGridFee_abi_str)
 DynamicGridFee_contract = web3.eth.contract(abi=DynamicGridFee_abi,address=DynamicGridFee_address)
 
 
-# In[18]:
+# In[7]:
 
 
 #Ethereum accounts/EOA
@@ -96,7 +96,7 @@ account_21=web3.eth.accounts[21]
 account_22=web3.eth.accounts[22]
 
 
-# In[19]:
+# In[8]:
 
 
 #########DAUGHTER AUCTION########
@@ -116,49 +116,65 @@ web3.personal.unlockAccount(coinbase, 'felixfaizan')
 Olidaughter_contract.transact({'from': coinbase}).setDynamicGridFee(DynamicGridFee_address)
 
 
-# In[ ]:
+# In[12]:
+
+
+bids = [4500,6500,7500,5500,5500,6500,6500]
+i=0
+
+
+# In[13]:
 
 
 #Bid
 run = 1
 while run == 1:
     web3.personal.unlockAccount(account_1, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_1}).bid(random.randint(50,625), 3)
+    Olidaughter_contract.transact({'from': account_1}).bid(bids[i], 3)
 
     web3.personal.unlockAccount(account_2, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_2}).bid(random.randint(100,105), 10)
+    Olidaughter_contract.transact({'from': account_2}).bid(random.randint(1000,1050), 10)
 
     web3.personal.unlockAccount(account_3, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_3}).bid(random.randint(50,55), 13)
+    Olidaughter_contract.transact({'from': account_3}).bid(random.randint(500,550), 13)
 
     web3.personal.unlockAccount(account_4, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_4}).bid(random.randint(200,205), 14)
+    Olidaughter_contract.transact({'from': account_4}).bid(random.randint(2000,2050), 14)
 
     web3.personal.unlockAccount(account_5, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_5}).bid(random.randint(155,160), 15)
+    Olidaughter_contract.transact({'from': account_5}).bid(random.randint(1550,1600), 15)
 
     web3.personal.unlockAccount(account_6, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_6}).bid(random.randint(100,105), 9)
+    Olidaughter_contract.transact({'from': account_6}).bid(random.randint(1000,1050), 9)
 
     web3.personal.unlockAccount(account_7, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_7}).bid(random.randint(150,155), 10)
+    Olidaughter_contract.transact({'from': account_7}).bid(random.randint(1500,1550), 10)
 
     web3.personal.unlockAccount(account_8, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_8}).bid(random.randint(200,255), 12)
+    Olidaughter_contract.transact({'from': account_8}).bid(random.randint(2000,2550), 12)
 
     web3.personal.unlockAccount(account_9, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_9}).bid(random.randint(100,105), 13)
+    Olidaughter_contract.transact({'from': account_9}).bid(random.randint(1000,1050), 13)
 
     web3.personal.unlockAccount(account_10, 'felixfaizan')
-    Olidaughter_contract.transact({'from': account_10}).bid(random.randint(300,305), 14)
+    Olidaughter_contract.transact({'from': account_10}).bid(random.randint(3000,3050), 14)
+    
+    i=i+1
 
-    time.sleep(30)
+    time.sleep(60)
     
     #MCP
     web3.personal.unlockAccount(account_9, 'felixfaizan')
     Olidaughter_contract.transact({'from': account_9}).breakEven()    
-    time.sleep(30)
+    time.sleep(60)
     web3.personal.unlockAccount(account_10, 'felixfaizan')
     Olidaughter_contract.transact({'from': account_10}).resett()    
-    time.sleep(30)
+    time.sleep(60)
+
+
+# In[11]:
+
+
+web3.personal.unlockAccount(account_10, 'felixfaizan')
+Olidaughter_contract.transact({'from': account_10}).resett()
 
