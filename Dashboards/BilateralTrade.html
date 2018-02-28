@@ -18,16 +18,16 @@
         var contract_origin_abi = [{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliType","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliCkt","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"}],"name":"get_oliTrafoid","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tid","type":"uint32"}],"name":"get_gsoAddr","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"},{"name":"_index","type":"uint8"}],"name":"get_oliPeakLoad","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"oli","type":"address"},{"name":"lat","type":"uint32"},{"name":"long","type":"uint32"},{"name":"trafo","type":"uint32"},{"name":"ckt","type":"uint8"},{"name":"typex","type":"uint8"},{"name":"pload","type":"uint16[]"}],"name":"addOli","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"paymentAddress","type":"address"},{"indexed":false,"name":"latOfLocation","type":"uint32"},{"indexed":false,"name":"longOfLocation","type":"uint32"}],"name":"newAddedOli","type":"event"}];
 
         //OLICoin contract
-        var contract_Coin_address = "0x9b18b1509c6f12eaaf8c7d91b76cd8c8d1950467";
-        var contract_Coin_abi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"caddress","type":"address"}],"name":"get_coinBalance","outputs":[{"name":"","type":"int32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_contract","type":"address"},{"name":"_tf","type":"bool"}],"name":"set_ContractAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_change","type":"int32"}],"name":"set_OliCoinBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint16"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint16"}],"name":"Transfer","type":"event"}];
+        var contract_Coin_address = "0xf594a7ac1a03f227305b58351a55730056dca066";
+        var contract_Coin_abi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"caddress","type":"address"}],"name":"get_coinBalance","outputs":[{"name":"","type":"int32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_contract","type":"address"},{"name":"_tf","type":"bool"}],"name":"set_ContractAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_change","type":"int32"}],"name":"set_OliCoinBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"del_Coinbalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint16"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint16"}],"name":"Transfer","type":"event"}];
 
         //OLIDaughter contract
         var contract_daughter_address = "0xb3cddc8da3ac6b1a348006cafe6fc39e4fde8442";
         var contract_daughter_abi = [{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"}],"name":"bid","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setBilateralTrading","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliCoin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setDynamicGridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"resett","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get_producer","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_rate","type":"uint8"}],"name":"get_sRate","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"get_consumer","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_rate","type":"uint8"}],"name":"get_dRate","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"maxRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"breakEven","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"gaddr","type":"address"},{"indexed":false,"name":"grate","type":"uint8"},{"indexed":false,"name":"gamount","type":"uint16"}],"name":"NewGenBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"caddr","type":"address"},{"indexed":false,"name":"crate","type":"uint8"},{"indexed":false,"name":"camount","type":"uint16"}],"name":"NewConBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"cbid","type":"uint8"}],"name":"NewMcp","type":"event"}];
 
         //Bilateral Trade contract
-        var contract_bilateral_address = "0xfaf5a6df9ddbf8f36ea4a12676f67edb98074ab9";
-        var contract_bilateral_abi = [{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stock","type":"address"},{"name":"_rate","type":"uint8"}],"name":"stockBidding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliCoin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockAmount","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"},{"name":"_period","type":"uint32"},{"name":"_btime","type":"uint32"}],"name":"regStock","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"biTrade","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockBidder","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"saccount","type":"address"},{"indexed":false,"name":"samount","type":"uint16"},{"indexed":false,"name":"smrate","type":"uint8"},{"indexed":false,"name":"speriod","type":"uint32"},{"indexed":false,"name":"sbiddingTime","type":"uint32"}],"name":"NewStock","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"baccount","type":"address"},{"indexed":false,"name":"bmrate","type":"uint8"}],"name":"NewStockBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bprod","type":"address"},{"indexed":false,"name":"bcons","type":"address"},{"indexed":false,"name":"bamount","type":"uint16"},{"indexed":false,"name":"brate","type":"uint8"}],"name":"BiTrade","type":"event"}];
+        var contract_bilateral_address = "0xfbfe7f566cbaa47edde7346b4c262552e310e793";
+        var contract_bilateral_abi = [{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliOrigin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stock","type":"address"},{"name":"_rate","type":"uint8"}],"name":"stockBidding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setOliCoin","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"setDynamicGridFee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockAmount","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint16"},{"name":"_rate","type":"uint8"},{"name":"_period","type":"uint32"},{"name":"_btime","type":"uint32"}],"name":"regStock","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"biTrade","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockBidder","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_stock","type":"address"}],"name":"get_stockRate","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"saccount","type":"address"},{"indexed":false,"name":"samount","type":"uint16"},{"indexed":false,"name":"smrate","type":"uint8"},{"indexed":false,"name":"speriod","type":"uint32"},{"indexed":false,"name":"sbiddingTime","type":"uint32"}],"name":"NewStock","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"baccount","type":"address"},{"indexed":false,"name":"bmrate","type":"uint8"}],"name":"NewStockBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"bprod","type":"address"},{"indexed":false,"name":"bcons","type":"address"},{"indexed":false,"name":"bamount","type":"uint16"},{"indexed":false,"name":"brate","type":"uint8"}],"name":"BiTrade","type":"event"}];
 
         //Grid Fee Contract
         var contract_gridFee_address = "0xf1f27101f0d9ac46d347205f2aa16cf0249936b2";
@@ -273,94 +273,117 @@
 
 <table>
     <tr>
+        <td>#</td>
         <td>Address</td>
-        <td>Balance</td>
+        <td>OLICoin</td>
     </tr>
     <tr>
+        <td id="r1c0">1</td>
         <td id="r1c1">Row1 Col1</td>
         <td id="r1c2">Row1 Col2</td>
     </tr>
     <tr>
+        <td id="r2c0">2</td>
         <td id="r2c1">Row2 Col1</td>
         <td id="r2c2">Row2 Col2</td>
     </tr>
     <tr>
+        <td id="r3c0">3</td>
         <td id="r3c1">Row3 Col1</td>
         <td id="r3c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r4c0">4</td>
         <td id="r4c1">Row3 Col1</td>
         <td id="r4c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r5c0">5</td>
         <td id="r5c1">Row3 Col1</td>
         <td id="r5c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r6c0">6</td>
         <td id="r6c1">Row3 Col1</td>
         <td id="r6c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r7c0">7</td>
         <td id="r7c1">Row3 Col1</td>
         <td id="r7c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r8c0">8</td>
         <td id="r8c1">Row3 Col1</td>
         <td id="r8c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r9c0">9</td>
         <td id="r9c1">Row3 Col1</td>
         <td id="r9c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r10c0">10</td>
         <td id="r10c1">Row3 Col1</td>
         <td id="r10c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r11c0">11</td>
         <td id="r11c1">Row3 Col1</td>
         <td id="r11c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r12c0">12</td>
         <td id="r12c1">Row3 Col1</td>
         <td id="r12c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r13c0">13</td>
         <td id="r13c1">Row3 Col1</td>
         <td id="r13c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r14c0">14</td>
         <td id="r14c1">Row3 Col1</td>
         <td id="r14c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r15c0">15</td>
         <td id="r15c1">Row3 Col1</td>
         <td id="r15c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r16c0">16</td>
         <td id="r16c1">Row3 Col1</td>
         <td id="r16c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r17c0">17</td>
         <td id="r17c1">Row3 Col1</td>
         <td id="r17c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r18c0">18</td>
         <td id="r18c1">Row3 Col1</td>
         <td id="r18c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r19c0">19</td>
         <td id="r19c1">Row3 Col1</td>
         <td id="r19c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r20c0">20</td>
         <td id="r20c1">Row3 Col1</td>
         <td id="r20c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r21c0">21</td>
         <td id="r21c1">Row3 Col1</td>
         <td id="r21c2">Row3 Col2</td>
     </tr>
     <tr>
+        <td id="r22c0">22</td>
         <td id="r22c1">Row3 Col1</td>
         <td id="r22c2">Row3 Col2</td>
     </tr>
